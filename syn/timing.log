@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : huffman
+Version: T-2022.03
+Date   : Sun Jul 31 05:43:22 2022
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: sort_cnt_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: high_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  huffman            tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  sort_cnt_reg[1]/CK (DFFRX2)                             0.00       0.50 r
+  sort_cnt_reg[1]/Q (DFFRX2)                              0.72       1.22 f
+  U2354/Y (CLKINVX1)                                      0.34       1.56 r
+  U2773/Y (NOR2X1)                                        0.16       1.72 f
+  U2772/Y (CLKBUFX3)                                      0.61       2.33 f
+  U2603/Y (AOI22XL)                                       0.61       2.94 r
+  U2899/Y (NAND2X1)                                       0.45       3.39 f
+  r1239/B[1] (huffman_DW01_sub_0_DW01_sub_1)              0.00       3.39 f
+  r1239/U4/Y (CLKINVX1)                                   0.20       3.59 r
+  r1239/U2_1/CO (ADDFXL)                                  0.82       4.41 r
+  r1239/U2_2/CO (ADDFXL)                                  0.50       4.91 r
+  r1239/U2_3/CO (ADDFXL)                                  0.51       5.42 r
+  r1239/U2_4/CO (ADDFHX2)                                 0.28       5.70 r
+  r1239/U2_5/S (ADDFXL)                                   0.88       6.58 r
+  r1239/DIFF[5] (huffman_DW01_sub_0_DW01_sub_1)           0.00       6.58 r
+  U2428/Y (NOR2XL)                                        0.27       6.85 f
+  U2430/Y (OR3X2)                                         0.36       7.21 f
+  U2432/Y (OAI222XL)                                      0.64       7.85 r
+  U2412/Y (OAI21X2)                                       0.28       8.13 f
+  U4038/Y (NAND2X1)                                       0.76       8.89 r
+  U2482/Y (INVX1)                                         0.64       9.53 f
+  U4037/Y (MXI2X1)                                        0.40       9.93 r
+  U4032/Y (NAND3X1)                                       0.21      10.14 f
+  high_reg[0]/D (DFFRX1)                                  0.00      10.14 f
+  data arrival time                                                 10.14
+
+  clock clk (rise edge)                                  10.00      10.00
+  clock network delay (ideal)                             0.50      10.50
+  clock uncertainty                                      -0.10      10.40
+  high_reg[0]/CK (DFFRX1)                                 0.00      10.40 r
+  library setup time                                     -0.24      10.16
+  data required time                                                10.16
+  --------------------------------------------------------------------------
+  data required time                                                10.16
+  data arrival time                                                -10.14
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.02
+
+
+1
